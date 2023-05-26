@@ -13,12 +13,10 @@ Route::get('/cart/product/{product:slug}/show', [CartController::class, 'show'])
 Route::post('/cart', [CartController::class, 'addToCart'])->name('cart.product.add');
 Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.create');
-    Route::post('/checkout', [CartController::class, 'process'])->name('checkout.process');
-    Route::get('/checkout/success', [CartController::class, 'success'])->name('checkout.success');
-    Route::get('/checkout/failed', [CartController::class, 'failed'])->name('checkout.failed');
-});
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.create');
+Route::post('/checkout', [CartController::class, 'process'])->name('checkout.process');
+Route::get('/checkout/success', [CartController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/failed', [CartController::class, 'failed'])->name('checkout.failed');
 
 //Route::middleware('auth')->group(function () {
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

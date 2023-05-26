@@ -30,7 +30,7 @@ class Customer extends Model
         return $this->morphToMany(Address::class, 'addressable');
     }
 
-    public function orders()
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }

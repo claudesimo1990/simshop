@@ -53,17 +53,17 @@ class CartController extends Controller
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
                 'birthday' => $request->get('birthday'),
-                'gender' => 'male',
+                'gender' => $request->get('gender'),
             ]);
 
             $order = $customer->orders()->create([
                 'number' => uniqid(),
-                'currency' => 'eur',
+                'currency' => 'euro',
                 'total_price' => \Cart::getTotal(),
                 'status' => 'new',
-                'shipping_price' => '100',
+                'shipping_price' => '00',
                 'shipping_method' => 'free',
-                'notes' => 'Lorem ipsum...',
+                'notes' => '',
             ]);
 
             $order->address()->create([

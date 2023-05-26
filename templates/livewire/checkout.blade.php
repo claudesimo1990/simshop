@@ -5,6 +5,19 @@
         <div>
             <h2 class="text-lg font-medium text-gray-900">Contact information</h2>
 
+            <div>
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <div class="mt-1">
+                    <select id="gender" name="gender" autocomplete="gender" value="{{ old('gender') }}"  class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    @error('gender')
+                    <span class="text-sm text-red-600">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
             <div class="mt-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
                 <div class="mt-1">
@@ -38,6 +51,17 @@
                         @enderror
                     </div>
                 </div>
+
+                <div>
+                    <label for="city" class="block text-sm font-medium text-gray-700">Address</label>
+                    <div class="mt-1">
+                        <input type="text" name="street" id="city" value="{{ old('street') }}"  autocomplete="address-level2" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                        @error('street')
+                        <span class="text-sm text-red-600">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
                 <div>
                     <label for="city" class="block text-sm font-medium text-gray-700">City</label>
                     <div class="mt-1">
@@ -52,9 +76,9 @@
                     <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
                     <div class="mt-1">
                         <select id="country" name="country" autocomplete="country-name" value="{{ old('country') }}"  class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Mexico">Mexico</option>
                         </select>
                         @error('country')
                         <span class="text-sm text-red-600">{{ $message }}</span>
